@@ -14,8 +14,8 @@ export interface MockedResponse<BodyType = any> {
   delay?: number
 }
 
-export type ResponseTransformer<BodyType = any> = (
-  res: MockedResponse<BodyType>,
+export type ResponseTransformer<BodyType = any, BodyType extends T> = (
+  res: MockedResponse<T>,
 ) => MockedResponse<BodyType> | Promise<MockedResponse<BodyType>>
 
 export type ResponseFunction<BodyType = any> = (
